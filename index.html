@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shah G's Study Hub</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .subject {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .subject h2 {
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .subject p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .upload-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .upload-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: #2563eb;
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Shah G's Study Hub</h1>
+    <p>MS Data Science — 2nd Semester</p>
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome to Shah G's Study Hub</h2>
+        <p>Select a course and upload its syllabus from your PC.</p>
+    </div>
+
+    <div class="subjects">
+
+        <div class="subject">
+            <h2>🧩 Problem Solving & Programming</h2>
+            <p>Programming concepts, logic building and problem solving.</p>
+
+            <div class="upload-box">
+                <label for="pspFile">📄 Upload Syllabus</label>
+                <input type="file" id="pspFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <div class="file-name" id="pspName"></div>
+            </div>
+        </div>
+
+
+        <div class="subject">
+            <h2>🐍 Programming for Data Science</h2>
+            <p>Programming tools and techniques for data science.</p>
+
+            <div class="upload-box">
+                <label for="pdsFile">📄 Upload Syllabus</label>
+                <input type="file" id="pdsFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <div class="file-name" id="pdsName"></div>
+            </div>
+        </div>
+
+
+        <div class="subject">
+            <h2>📖 Fehm-ul-Quran</h2>
+            <p>Quran translation, understanding and lessons.</p>
+
+            <div class="upload-box">
+                <label for="fqFile">📄 Upload Syllabus</label>
+                <input type="file" id="fqFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <div class="file-name" id="fqName"></div>
+            </div>
+        </div>
+
+
+        <div class="subject">
+            <h2>💻 Data Structures & Algorithms</h2>
+            <p>Data structures, algorithms and problem solving.</p>
+
+            <div class="upload-box">
+                <label for="dsaFile">📄 Upload Syllabus</label>
+                <input type="file" id="dsaFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <div class="file-name" id="dsaName"></div>
+            </div>
+        </div>
+
+
+        <div class="subject">
+            <h2>📚 Other Books & Resources</h2>
+            <p>Extra books, reference material and useful resources.</p>
+
+            <div class="upload-box">
+                <label for="otherFile">📄 Upload Book / Resource</label>
+                <input type="file" id="otherFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <div class="file-name" id="otherName"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>Shah G's Study Hub © 2026</p>
+</footer>
+
+
+<script>
+    function showFileName(inputId, outputId) {
+        const input = document.getElementById(inputId);
+        const output = document.getElementById(outputId);
+
+        input.addEventListener("change", function () {
+            if (this.files.length > 0) {
+                output.textContent = "Selected: " + this.files[0].name;
+            } else {
+                output.textContent = "";
+            }
+        });
+    }
+
+    showFileName("pspFile", "pspName");
+    showFileName("pdsFile", "pdsName");
+    showFileName("fqFile", "fqName");
+    showFileName("dsaFile", "dsaName");
+    showFileName("otherFile", "otherName");
+</script>
+
+</body>
+</html>
